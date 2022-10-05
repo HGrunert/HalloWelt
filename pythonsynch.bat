@@ -1,0 +1,2 @@
+scp -r -C -i C:\Users\herrg\.ssh\ccuser C:\Users\herrg\Documents\_Workspace\* user09@51.68.164.252:~/_Workspace/
+scp -r -C C:\Users\herrg\Documents\_Workspace\* kali@[fe80::3af9:25c9:ca28:56bb]:~/_Workspace/
