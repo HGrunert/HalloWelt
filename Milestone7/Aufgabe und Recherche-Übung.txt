@@ -1,0 +1,37 @@
+Aufgaben:
+erstelle fü jede Methode der Strings und den Operatoren für Strings und rechnen,
+jeweils eine Test<funktionsname>.py an und lege diese unter dem entsprechenden Milestone ab.
+
+teste ggf eigenen code in test.py in deinem _Workspace.
+lade deine Ergebnisse in den Teamsordner und den _Workspace auf dem B2 hoch und in dein Git-Repository.
+
+
+
+
+passe den sanitizer2a.py aus dem Tems-ordner
+wie folgt an und lade ihn als sanitizer3.py 
+in denen Workspace auf dem teams und dem B2:
+
+alle ausgaben sollen formatiert ausgegeben werden (z.B. die Zähler!)
+alle Texte sollen Linksbündig mit 60 Zeichen ausgegeben werden!
+alle Texte Zählwerk sollen nach 50 Zeichen den Doppelpunkt haben 
+und dann die Anzahl der gezählten Ersetzungen als 2 stellige Zahl 
+und rechtsbündig (Stringlänge 5 Zeichen nach dem Doppelpunkt) ausgeben.
+
+das erste wort "Klammern, Leerzeichen, Sonderzeichen sollen in gleicher länge 
+(mit füllzeichen " ") ausgegeben werden.
+
+die gespeicherten Strings sollen in Kleinbuchstaben gespeichert werden,
+das erste Zeichen des Output-Strings soll als Gr0ßbuchstabe ausgegeben werden!
+alle aufgeführten Zeichen die ersetzt werden sollen also hübsch untereinander eingerückt sein!
+Dokumentiere den Sanitizer3.py
+
+
+wir wollen Sonderzeichen, klammern und Zeilenumbrüche einzeln zählen!
+wir wollen am ende wissen wieviele Klammern, Sonderzeichen oder Zeilenumbrüche enthalten waren.
+
+
+
+ 
+frage:
+welche funktionen/Methoden benötigst du zur erweiterung der Sanitizer-3 Übung?

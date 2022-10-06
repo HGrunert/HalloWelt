@@ -1,0 +1,4 @@
+Recherchiere die Portnummer für Telnet
+
+erstelle einen Kleinen Programmcode und nenne diesen PJep.py
+ermögliche mit Variablen die Berechnung des Ergebnisses und gebe dieses Hübsch Formatiert aus.

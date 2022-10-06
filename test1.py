@@ -1,0 +1,5 @@
+telnet = 23
+erg = int(telnet ** 4 + telnet ** 3) / 2
+print(15*"_/\\_")
+print('|' + str((23**4+23**3)/2).center(58) + '|')
+print(15*"\\__/")
