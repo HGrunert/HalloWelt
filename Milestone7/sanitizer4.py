@@ -3,7 +3,7 @@ def ruler():
     print(6*"1234567890")
 
 def sanitize(toSan):
-    signs = '<>();\\"\'-{}[]'
+    signs = '<>(){}[];\\"\'-'
     toSan = toSan.strip()
     liste = []
     zaeler = []
@@ -32,7 +32,8 @@ def sanitize(toSan):
 #The Strings to test
 print(sum(sanitize(" - Hallo dies ist ein Test des Sanitizers() der <xml> und ggf auch 'sql SELECT FROM * WHERE X='Y' - erfasst werden!' ")[2]))
 
-sanitize(' <html> ist eine tolle Sprache</html> ')
+for i in sanitize(' <html> ist eine tolle Sprache</html> ')[2]:
+    print(i)
 
 sanitize("Hacker schleusen auch gerne Code ein! test()")
 
