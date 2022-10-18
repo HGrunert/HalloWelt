@@ -20,12 +20,22 @@ gaestebuch = []
 
 
 #Gastgeber
+gasteintrag = {}
 gasteintrag['vname'] = "Ben"
 gasteintrag['nname'] = "Ertel"
 gasteintrag['telnr'] = "+4900000000000"
 gasteintrag['mail'] = "Ertel@ben.deutschland"
 gasteintrag['allergie'] = "keine"
 gasteintrag['gender'] = "backfisch"
+gaestebuch.append(gasteintrag)
+#nochwat
+gasteintrag = {}
+gasteintrag['vname'] = "Benny"
+gasteintrag['nname'] = "Ertelly"
+gasteintrag['telnr'] = "+4900000000001"
+gasteintrag['mail'] = "Ertelly@ben.deutschland"
+gasteintrag['allergie'] = "keine"
+gasteintrag['gender'] = "backfische"
 gaestebuch.append(gasteintrag)
 #leereintrag
 gastn['vname'] = "NA"
@@ -48,31 +58,31 @@ def eingabe():
     ge['vname'] = input("Vorname:".rjust(20))
     ge['nname'] = input("Nachname:".rjust(20))
     ge['telnr'] = input("Tel.:".rjust(20))
-    ge['mail'] = 'lol'
-    while((ge['mail'].count('@') * ge['mail'].count('.'))== 0):
-        ge['mail'] = input("EMail:".rjust(20))
+    ge['mail'] = 'lol' #set mail to something
+    while((ge['mail'].count('@') * ge['mail'].count('.'))== 0): #solange entweder
+        ge['mail'] = input("EMail:".rjust(20)) #0@s oder 0 punkte drin sind
         if((ge['mail'].count('@') * ge['mail'].count('.'))== 0):
-            print('ERROR:Not an email.')
+            print('ERROR:Not an email.') #und gib ne errormeldung an
     ge['allergie'] = input("Allergene:".rjust(20))
     ge['gender'] = input("Gender:".rjust(20))
     return(ge) #return the guest to append it outside
 
 def findguest(): #finde einen Gast nach seinem Namen und returne ihn.
     aName = input('Name des Gastes:')
-    n=0
+    n=0 #setz die outnummer auf 0
     for guest in gaestebuch:
-        if(guest['vname'] == aName):
+        if(guest['vname'] == aName):#check firstname
             return([guest,n])
-        if(guest['nname'] == aName):
+        if(guest['nname'] == aName):#lastname
             return([guest,n])
-        if(guest['vname']+' '+guest['nname'] == aName):
+        if(guest['vname']+' '+guest['nname'] == aName): #bothnames
             return([guest,n])
-        n+=1
-    guest['allergie'] = 'error'
+        n+=1 #make the number larger before loading the next guest
+    guest['allergie'] = 'error' #if there is no guest make one and give it the allergie error
     return([guest,-100000000000]) #return the guest and it's number. Negative 10billions is an error code.
 
 def listall():
-    n=0
+    n=0 #to print guest numbers
     print(40*'-')#Format
     print('Nr:'.ljust(5) + 'Name:'.ljust(20) + 'Gender:')#Tabellenkopf
     for guest in gaestebuch:
@@ -104,47 +114,49 @@ def hauptmenue():
         quit""")
         # benutzereingabe abfragen
         hmeingabe = input("Bitte wähle eine Option des Hauptmenüs:")
+        hmeingabe = hmeingabe.lower()
         #bedingung prüfen inclusive bedingung "schleifenabbruch"
         if(hmeingabe=='quit'): #kill the programm
             break
-        if(hmeingabe=='addguest'): #add a guest
+        elif(hmeingabe=='addguest'): #add a guest
             gaestebuch.append(eingabe())
-        if(hmeingabe=='delguest'): #delete a guest
+        elif(hmeingabe=='delguest'): #delete a guest
             gone = findguest()[1] #get nr from name
             if(gone == -100000000000): #error code
                 print("Ich konnte diesen Gast nicht finden.")
             else:
                 del(gaestebuch[gone])
                 print('Gast', gone ,'entfernt.')
-        if(hmeingabe=='checkguest'): #check a guests Allergies
-            tmpguest = findguest()
-            curguest = tmpguest[0]
-            if(tmpguest[1] == -100000000000):
+        elif:(hmeingabe=='checkguest'): #check a guests Allergies
+            tmpguest = findguest()#call the findguest
+            curguest = tmpguest[0] #put the found guest into curguest
+            if(tmpguest[1] == -100000000000):#check for the error code
                 print("Ich konnte diesen Gast nicht finden.")
             else:
                 print('Gast' +str(tmpguest[1]) + ':' + curguest['vname'] + ' ' + curguest['nname'] + ' ist auf der Gästeliste.')
                 if(curguest['allergie']=='keine' or curguest['allergie']== 'none'):
+                    #check if there are allergies
                     print('Der Gast hat keine Allergien.')
-                else:
+                else: #if the field isn't filled with none, gimme the field
                     print(curguest['vname'] + ' ist gegen ' + curguest['allergie'] + ' allergisch.')
-        if(hmeingabe=='printall'): #dump the guestbook
+        elif(hmeingabe=='printall'): #dump the guestbook
             print(gaestebuch)
-        if(hmeingabe=='guests'): #list the guests with their number
+        elif(hmeingabe=='guests'): #list the guests with their number
             listall()
-        if(hmeingabe=='load'): #dummy
+        elif(hmeingabe=='load'): #dummy
             if('Ja'==input('Altes Gaestebuch überschreiben? Ja/Nein?')):
                 print('loaded')
                 #pickle.load(gaesteliste,'GL.dat')
-        if(hmeingabe=='save'): #dummy
+        elif(hmeingabe=='save'): #dummy
                 if('Ja'==input('Altes Gaestebuch file überschreiben? Ja/Nein?')):
                     print('saved')
                     #pickle.dump(gaesteliste,'GL.dat')
-        if(hmeingabe=='guestnumber'): #dump a guest from it's number
+        elif(hmeingabe=='guestnumber'): #dump a guest from it's number
             n= int(input('Nummer? '))
             if(n<len(gaestebuch)):
                 print(gaestebuch[n])
             else: print('No Entry.')
-        if(hmeingabe=='clearall'): #delete everything.
+        elif(hmeingabe=='clearall'): #delete everything.
             if('Ja'==input('Wirklich alles löschen? Ja/Nein?')):
                 gaestebuch = []
                 print('Your Funeral.')

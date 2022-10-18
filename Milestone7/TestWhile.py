@@ -11,7 +11,7 @@
 #ist 4 != 3 ? true
 #ist 3 != 3 ? false
 
-teststring = "abcdefghijklm"
+teststring = "abcdefghijklmnopqrstuvwxyz"
 
 durchlauf = 1
 abbruch = len(teststring)

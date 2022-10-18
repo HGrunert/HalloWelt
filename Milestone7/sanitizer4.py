@@ -5,14 +5,14 @@ def ruler():
 def sanitize(toSan):
     signs = '<>(){}[];\\"\'-'
     toSan = toSan.strip()
-    liste = []
+    countoutp = []
     zaeler = []
     for chars in signs: #für alle teile von signs, do
         zaeler.append(toSan.count(chars))
         if(0!=toSan.count(chars)): #wenn die Zahl von chars in toSan nicht Null ist,
-            liste.append("Achtung! Der String enthält Sonderzeichen \"" + chars + "\"  :"\
+            countoutp.append("Achtung! Der String enthält Sonderzeichen \"" + chars + "\"  :"\
                          + str(toSan.count(chars)).zfill(2).rjust(5))
-            #Hänge an liste : eine Einleitung mit dem Zeichen + die Zahl der zeichen in toSan
+            #Hänge an countoutp : eine Einleitung mit dem Zeichen + die Zahl der zeichen in toSan
             # + zahl der Zeichen als str, zfilled zu 2 ziffern
             # und rechtsbündig mit 5 Zeichen nach dem ":".
     ######Ausgabe######
@@ -26,8 +26,8 @@ def sanitize(toSan):
     toSan = toSan.lower() #speichern als kleinbuchstaben.
     print('Der Sanitized String ist'.ljust(49) + ':' + '\n' + toSan[0].upper() + toSan[1:len(toSan)].ljust(59)) #sag mir was übrig bleibt
     ruler()
-    print('\n'.join(liste))
-    return[toSan, liste , zaeler]
+    print('\n'.join(countoutp))
+    return[toSan, countoutp , zaeler]
 
 #The Strings to test
 print(sum(sanitize(" - Hallo dies ist ein Test des Sanitizers() der <xml> und ggf auch 'sql SELECT FROM * WHERE X='Y' - erfasst werden!' ")[2]))
