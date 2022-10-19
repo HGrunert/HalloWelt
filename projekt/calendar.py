@@ -3,15 +3,16 @@ datamonths =[]
 datamonths =[0,31,28,31,30,31,30,31,31,30,31,30,31]
 
 def get_days(year,month): #show me how many days the month in that year has/had
-    monthsd = []
-    monthsd.extend(datamonths)
+    monthsd = [] #listen kopieren ist nicht trivial wie monthsd = datamonths da der dann einfach
+    # nur den Speicherort weitergibt
+    monthsd.extend(datamonths)# d.h. riesige SideEffects macht.
     if(year>1901):
         if(not(year%4)):
             monthsd[2] = 29
     return(monthsd[month])
 
 def get_months(year): #get me a list of the months with their number of days for a year
-    monthsm = []
+    monthsm = [] #listen sind clunky, nicht pythonisch
     monthsm.extend(datamonths)
     monthsm[2] = get_days(year,2)
     return(monthsm)
@@ -49,7 +50,7 @@ def view_datum(datumv):  # view #  ausgabe ob datum korrekt ist
     return(1)
 
 def calendarprint(yearcal):
-    monsc = []
+    monsc = [] #non pythonic lists
     monsc.extend(get_months(yearcal))
     for mon in monsc[1::]:
         print(' [ ]'+ ' [ ]'.join(str(x) for x in range(1,mon+1)))
