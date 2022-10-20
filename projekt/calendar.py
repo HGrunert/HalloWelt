@@ -22,16 +22,21 @@ def get_years(yeary): #Make a list of 100 years after year
 
 
 def get_data_from_user_view():  # view #  eingabe eines Datums und zerlegen in jahr, monat, tag
-    day = int(input('Zahl für den Tag:'))
-    month = int(input('Zahl für den Monat:'))
-    year = int(input('Jahreszahl:'))
-    datum ={'tag':day, 'monat':month,'jahr':year}
-    return(datum)
+    while True:
+        sday = input('Zahl für den Tag:') #if type == int or sanitizer mit 2 var
+        smonth = input('Zahl für den Monat:')
+        syear = input('Jahreszahl:')
+        if(sday.isnumeric() and smonth.isnumeric() and syear.isnumeric()):
+            datum ={'tag':int(sday), 'monat':int(smonth),'jahr':int(syear)}
+            return(datum)
+        print('Error, not a number.')
 
 def check_datum(datumc):  # model#  prüfen ob das Datum korrekt eingegeben wurde
-    if(datumc['monat']>12):
+    if(not(datumc['jahr'])):
         return(False)
-    if (datumc['tag'] > get_days(datumc['jahr'],datumc['monat'])):
+    if(datumc['monat']>12 or datumc['monat']<1): #Also check <0
+        return(False)
+    if (datumc['tag'] > get_days(datumc['jahr'],datumc['monat']) or 1 > datumc['tag']):
         return(False)
     return(True)
 
@@ -44,10 +49,10 @@ def check_schaltjahr(datums):  #
 
 def view_datum(datumv):  # view #  ausgabe ob datum korrekt ist
     if(check_datum(datumv)):
-        print(datumv['jahr'],'/',datumv['monat'],'/',datumv['tag'])
+        print(datumv['jahr'],'-',datumv['monat'].__str__().zfill(2),'-',datumv['tag'].__str__().zfill(2))
     else:
         print('Error, Datum existiert nicht.')
-    return(1)
+    #return(1)
 
 def calendarprint(yearcal):
     monsc = [] #non pythonic lists
@@ -58,7 +63,12 @@ def calendarprint(yearcal):
 #print(get_days(2000,2))
 #print(get_years(1950))
 #print(check_datum(get_data_from_user_view()))
-for year in get_years(1945):
-    print(year, ':')
-    print(177*'=')
-    calendarprint(year)
+#for year in get_years(1945):
+#    print(year, ':')
+#    print(177*'=')
+#    calendarprint(year)
+
+date = get_data_from_user_view()
+#print(date)
+#print(check_schaltjahr(date))
+view_datum(date)
