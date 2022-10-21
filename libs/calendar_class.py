@@ -1,11 +1,12 @@
 #import nothing
 datamonths =[]
 datamonths =[0,31,28,31,30,31,30,31,31,30,31,30,31]
-class Datum_setgets:
-    def __init__(self,jahr=1,monat=1,tag=1):
+class Datum:
+    def __init__(self,jahr,monat,tag):
         self.year = jahr
         self.month =monat
         self.day = tag
+    #region #setgets
     def get_year(self):
         return int(self.year)
     def set_year(self,inp):
@@ -23,12 +24,7 @@ class Datum_setgets:
         if inp<=self.get_days() and inp >0:
             self.day= inp
         else:print('invalid day')
-
-class Datum(Datum_setgets):
-    def __init__(self,jahr,monat,tag):
-        self.year = jahr
-        self.month =monat
-        self.day = tag
+    #endregion
     def get_days(self): #show me how many days the month in that year has/had
         monthsd = [] #listen kopieren ist nicht trivial wie monthsd = datamonths da der dann einfach
         # nur den Speicherort weitergibt

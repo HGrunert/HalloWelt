@@ -36,7 +36,7 @@ class Gast:
         self.impfstatus=impfstatus
         self.covid=covid
         self.status=status
-    ##getset
+    #region #getset
     def set_nname(self,name):
         self.nname =name
 
@@ -90,6 +90,7 @@ class Gast:
 
     def get_covid(self):
         return self.covid
+    #endregion
     ##functions
     def ask_values(self):
         self.set_vname(input("Vorname:".rjust(20)))
