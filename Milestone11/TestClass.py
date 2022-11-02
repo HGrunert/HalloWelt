@@ -25,7 +25,7 @@ class Tier:
 
 class Gast:
     def __init__(self,vname='NA',nname=' ',email='not@given.nowhere',\
-                 allergie='unknown',telephone_Nr='000000',gender='Attack Helicopter',\
+                 allergie='unknown',telephone_Nr='000000',gender='unknown',\
                  impfstatus=False,covid=False,status='invited'):
         self.vname= vname
         self.nname= nname
@@ -106,8 +106,8 @@ class Gast:
         if (input('rsvp? j/n'.rjust(20)) =='j'): self.set_status('confirmed')
         if (input('Geimpft? j/n'.rjust(20)) == 'j'): self.set_impfstatus(True)
         if not(input('CoViD Positiv? j/n'.rjust(20)) == 'n'):
-            self.set_impfstatus(True)
+            self.set_covid(True)
             print('Interpreting vague answer as "Yes".')
 
-ben=Gast('Ben', 'Ertel')
+ben= Gast('Ben', 'Ertel')
 ben.ask_values()
