@@ -2,7 +2,7 @@
 datamonths =[]
 datamonths =[0,31,28,31,30,31,30,31,31,30,31,30,31]
 class Datum:
-    def __init__(self,jahr,monat,tag):
+    def __init__(self,jahr=1,monat=1,tag=1):
         self.year = jahr
         self.month =monat
         self.day = tag
@@ -76,15 +76,15 @@ def calendarprint(yearcal):
     for mon in monsc[1::]:
         print(' [ ]'+ ' [ ]'.join(str(x) for x in range(1,mon+1)))
 
-print(Datum(2000,2).get_days)
-print(Datum(1950).get_years())
-print(get_data_from_user_view().check_datum)
+#print(Datum(2000,2).get_days)
+#print(Datum(1950).get_years())
+#print(get_data_from_user_view().check_datum())
 #for year in get_years(1945):
 #    print(year, ':')
 #    print(177*'=')
 #    calendarprint(year)
 
-date = get_data_from_user_view()
+#date = get_data_from_user_view()
 #print(date)
 #print(check_schaltjahr(date))
-date.view()
+#date.view()
