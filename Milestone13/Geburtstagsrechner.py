@@ -2,7 +2,7 @@ import time
 import datetime
 import locale
 import calendar
-from libs import calendar_class
+
 
 
 def findin(it,list):
@@ -11,6 +11,14 @@ def findin(it,list):
             return(list.index(it),False)
     return(0,True)
 
+def get_data_from_user_view():  # view #  eingabe eines Datums und zerlegen in jahr, monat, tag
+    while True:
+        sday = input('Zahl für den Tag:') #if type == int or sanitizer mit 2 var
+        smonth = input('Zahl für den Monat:')
+        syear = input('Jahreszahl:')
+        if(sday.isnumeric() and smonth.isnumeric() and syear.isnumeric()):
+            return(datetime.date(syear,smonth,sday))
+        print('Error, not a number.')
 def timezone():
     fin = True
     while fin:

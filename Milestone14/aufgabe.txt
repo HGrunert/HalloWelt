@@ -1,0 +1,10 @@
+bitte die E-Book PDF- Seiten (pdf-seite) 198-221 bearbeiten
+ein neuen view erstelln und die Einkaufsliste erstellen,
+das Formular zur erstellung von personen vervollständigen
+
+eine Auswahl schreiben,  die auf der kommandline eine abfrage macht ob man die Person über die Shell oder die Gui anlegen möchte,
+und bei anlage über Gui, die root-pane erzeugt.
+
+beide ansichten sollen Ihre Daten als dict übergeben, die verarbeitung soll gui unabhängig gestaltet werden.
+
+schreibt dazu bitte ein paar funktionen und ladet eure ergebnisse in Git, in Teams und in den B2-Server unter Milestone14 hoch.

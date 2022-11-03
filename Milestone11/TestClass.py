@@ -109,5 +109,15 @@ class Gast:
             self.set_covid(True)
             print('Interpreting vague answer as "Yes".')
 
+def listall():
+    n = 0  # to print guest numbers
+    print(40 * '-')  # Format
+    print('Nr:'.ljust(5) + 'Name:'.ljust(20) + 'Gender:')  # Tabellenkopf
+    for guest in gaestebuch:
+       namee = guest.vname + ' ' + guest.nname  # space for the name
+         print(str(n).ljust(5), namee.center(20) + ":" + guest.gender.rjust(13))
+         n += 1
+     print(40 * '-')
+
 ben= Gast('Ben', 'Ertel')
 ben.ask_values()
