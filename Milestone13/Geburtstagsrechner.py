@@ -65,3 +65,11 @@ while True:
     else:
         print('Die beiden sind gleich alt.')
     if input('Type Exit to quit').lower() =='exit': break
+
+
+def timedeltaToHours(delta):
+    sec = delta.seconds
+    daysToHours = delta.days * 24
+    hours = sec // (60 * 60)
+    minutes = (sec - (hours * 60 * 60)) // 60
+    return str(hours + daysToHours) + ":" + str(minutes) + " h"
