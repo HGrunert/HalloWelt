@@ -34,10 +34,22 @@ class EListe():
         button.pack()
         return(self.eliste)
 
+    def clentry(self):
+        global zettel
+        item=''
+        while(item.lower()!='nichts'):
+            item=input('Was willst du kaufen?')
+            nr=input('Wie viel davon brauchst du?')
+            zettel.append((item,nr))
+            print('Hinzugefügt. Schreibe "nichts" zum beenden')
+
 einkauf = EListe()
 ezettel= einkauf.entryform(frame)
 if(input('GUI? y/n').lower()=='y'):
     root.mainloop()
 else:
-    print('makelist')
-print('\n'.join(zettel))
+    einkauf.clentry()
+printz =[]
+for i in zettel:
+    printz.append(':'.join(i))
+print('\n'.join(printz))
