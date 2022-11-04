@@ -17,6 +17,25 @@ label2 = tk.Label(root,text='Das hier ist die Biene.'+ eingabefeld_wert.get(),\
 #Eingabefelder
 eingabefeld= tk.Entry(root, textvariable= eingabefeld_wert)
 passwdfeld = tk.Entry(root,textvariable=passwdfeld_wert,show='X')#wanna show how to do the * thingies
+##checkboxes
+'''
+checkbox1 =tk.Checkbutton(root)
+checkbox1['text'] = 'checkbox'
+checkbox1.pack()
+checkbox1var=tk.BooleanVar()
+checkbox1['variable'] = checkbox1var
+##listboxes
+choicelist= ['choice1','choice2','etc']
+lbox=tk.Listbox(root)
+lbox.pack()
+for item in choicelist:
+    lbox.insert('end',item) #insert an index and the elements
+
+#im output dann:
+def lboxoutput(lbox):
+    lbox_output=lbox.curselection()
+    return lbox_output
+'''
 #buttons
 def exitbiene():
     exit()
